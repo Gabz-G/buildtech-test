@@ -174,3 +174,17 @@ footer {
     border-top: 1px solid #222;
     color: #555;
 }
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem; /* Shrinks the giant heading on phones */
+    }
+    
+    nav ul {
+        display: none; /* Simplifies the menu for mobile (temporary fix) */
+    }
+    
+    section {
+        padding: 50px 5%; /* Less padding so content has more room */
+    }
+}
