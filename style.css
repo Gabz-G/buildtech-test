@@ -1,0 +1,176 @@
+/* 1. Global Reset & Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212; /* Fixed: This now covers the whole page */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo-text {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 2. Navigation */
+header {
+    background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent black */
+    padding: 15px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    color: #e63946;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e63946;
+}
+
+/* 3. Sections & Hero */
+section {
+    padding: 100px 10%;
+    text-align: center;
+    scroll-margin-top: 70px; /* Prevents header from covering titles */
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    padding: 150px 10%;
+    border-bottom: 2px solid #e63946;
+}
+
+.main-logo {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #b91c1c;
+    transform: scale(1.05);
+}
+
+/* 4. Partners Bar */
+.partners-bar {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    border-bottom: 1px solid #222;
+}
+
+.partner {
+    margin: 0 15px;
+    color: #999;
+    font-weight: bold;
+}
+
+/* 5. Shop Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    border-color: #e63946;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1);
+}
+
+.product-image-placeholder {
+    background-color: #2a2a2a;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.price {
+    font-size: 1.4rem;
+    color: #e63946;
+    font-weight: bold;
+}
+
+.buy-button {
+    display: block;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.buy-button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* 6. Footer */
+footer {
+    padding: 60px 10%;
+    background-color: #0a0a0a;
+    text-align: center;
+    border-top: 1px solid #222;
+    color: #555;
+}
