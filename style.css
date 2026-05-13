@@ -35,6 +35,23 @@ button {
     transition: 0.3s;          /* Makes the hover effect smooth */
 }
 
+.cta-button {
+    display: inline-block;
+    background-color: #e63946; /* Use your new color code here! */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;     /* This removes the blue underline */
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #b91c1c;
+    transform: translateY(-3px); /* Makes it pop up slightly */
+}
+
 button:hover {
     background-color: #b91c1c; /* Darker red when you hover */
     transform: scale(1.05);    /* Slightly grows the button */
