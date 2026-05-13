@@ -188,3 +188,11 @@ footer {
         padding: 50px 5%; /* Less padding so content has more room */
     }
 }
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* This crops the image perfectly to fit the box */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
