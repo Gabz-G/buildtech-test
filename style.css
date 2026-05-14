@@ -13,6 +13,129 @@ html, body {
 
 }
 
+/* 1. The Container - Make it slightly taller so content fits */
+.slider-container {
+    position: relative;
+    height: 85vh; /* Increased from 75 to 85 */
+    min-height: 600px; /* Ensures enough room for text on smaller screens */
+    background-color: #0d0d0d;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* 2. The Slide - Pure centering */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* THE KEY CODE FOR EDGE-TO-EDGE */
+    background-size: cover;      /* Stretches to fill width and height */
+    background-position: center; /* Keeps the car/product centered */
+    background-repeat: no-repeat; /* Prevents the "starting again" seam */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* 3. The Layout - The "Split Screen" */
+.slide-product-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the whole block */
+}
+
+.slide.active {
+    opacity: 1; /* Shown when active */
+    visibility: visible;
+    z-index: 5;
+}
+
+.slide-image {
+    flex: 1;
+    width: 100%;
+    max-width: 500px; /* Keeps image from getting too huge */
+    height: 350px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-tag {
+    color: #e63946;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.slide-info h1 {
+    font-size: 3.5rem;
+    margin: 10px 0;
+}
+
+.slide-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 20px 0;
+}
+
+/* Navigation Buttons - Moved up slightly to ensure they don't overlap footer */
+.slider-nav {
+    position: absolute;
+    bottom: 20px; 
+    right: 10%;
+    display: flex;
+    gap: 15px;
+    z-index: 20;
+}
+
+.slider-nav button {
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+.slider-nav button:hover {
+    background: #e63946;
+    border-color: #e63946;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .slide-product-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .slide-info { text-align: center; }
+    .slide-info h1 { font-size: 2rem; }
+    .slide-image { height: 250px; width: 100%; }
+    .slider-nav {
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -215,48 +338,31 @@ header {
     transform: translateY(-2px);
 }
 
-@media (max-width: 600px) {
-    .product-grid {
-        /* This tells the phone to make each card the full width of the screen */
-        grid-template-columns: 1fr; 
+@media (max-width: 900px) {
+    .slider-container {
+        height: auto; /* Let it grow with content */
+        min-height: 80vh;
+        padding-bottom: 80px; /* Room for the arrows */
+    }
+
+    .slide-product-layout {
+        flex-direction: column;
         gap: 20px;
     }
 
-.social-sidebar {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 2000;
-}
+    .slide-image {
+        height: 200px; /* Shrink image on mobile */
+        width: 100%;
+    }
 
-.social-sidebar a {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    backdrop-filter: blur(5px);
-    text-decoration: none;
-    transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.1);
-}
+    .slide-info h1 {
+        font-size: 2.2rem;
+    }
 
-.social-sidebar a:hover {
-    background: #e63946;
-    color: white;
-    transform: scale(1.1);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
+    .slide-info {
+        text-align: center;
+        align-items: center;
+    }
 }
 
 @media (max-width: 600px) {
