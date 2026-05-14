@@ -43,6 +43,51 @@
         <span class="partner">MEGASQUIRT</span>
     </div>
 
+<section id="home" class="slider-container">
+    <div class="slider">
+        
+        <!-- Slide 1: Carburetor Tuning and Balancing -->
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('carbsync.jpg');">
+            <div class="slide-product-layout">
+                <div class="slide-image">
+                    <div class="product-placeholder">Carburetor Cleaning and Balancing</div>
+                </div>
+                <div class="slide-info">
+                    <span class="category-tag">Carburetor Performance</span>
+                    <h1>Carburetor Tuning and Balancing</h1>
+                    <p>Full Carb Cleaning services and rejetting optimized for Malta's climate or racing conditions.</p>
+                    <p class="slide-price">Starting at €100</p>
+                    <a href="mailto:builtech26@gmail.com?subject=Inquiry: Carburetor Tuning and Balancing" class="cta-button">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: ECU Calibration -->
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('ecutuning.jpg');">
+
+            <div class="slide-product-layout">
+                <div class="slide-image">
+                    <div class="product-placeholder">ECU TUNING</div>
+                </div>
+                <div class="slide-info">
+                    <span class="category-tag">Digital Precision</span>
+                    <h1>Custom ECU Calibration</h1>
+                    <p>Optimized for Malta's climate or racing conditions.</p>
+                    <p class="slide-price">Starting at €450</p>
+                    <a href="mailto:builtech26@gmail.com?subject=Inquiry: ECU Calibration" class="cta-button">Book a Session</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Arrows -->
+<div class="slider-nav">
+    <button class="prev-btn"><i class="fa-solid fa-arrow-left"></i></button>
+    <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button>
+</div>
+</section>
+
     <section id="services">
         <h2>Our Services</h2>
         <p>We're kicking things off by focusing on standalone Megasquirt ECUs, programming, and street tuning. We've got dashboards and ECUs for all sorts of projects, from small DIY kits for hobbyists who like to get their hands dirty to full-on professional ECUs.</p>
@@ -92,7 +137,45 @@
 
         </div>
     </section>
+<script>
+    // 1. Select all the slides and buttons
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    let index = 0;
 
+    // 2. The Function to move slides
+    function changeSlide(direction) {
+        // Remove 'active' from current slide
+        slides[index].classList.remove('active');
+
+        if (direction === 'next') {
+            index = (index + 1) % slides.length;
+        } else {
+            index = (index - 1 + slides.length) % slides.length;
+        }
+
+        // Add 'active' to the new slide
+        slides[index].classList.add('active');
+        console.log("Current Slide Index:", index); // This helps you debug!
+    }
+
+    // 3. Event Listeners for Buttons
+    nextBtn.addEventListener('click', () => {
+        clearInterval(autoSlide); // Stops auto-timer on click
+        changeSlide('next');
+        autoSlide = setInterval(() => changeSlide('next'), 5000); // Restarts timer
+    });
+
+    prevBtn.addEventListener('click', () => {
+        clearInterval(autoSlide);
+        changeSlide('prev');
+        autoSlide = setInterval(() => changeSlide('next'), 5000);
+    });
+
+    // 4. Set Auto-Slide timer (5 seconds)
+    let autoSlide = setInterval(() => changeSlide('next'), 5000);
+</script>
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 Buildtech Performance | Malta</p>
