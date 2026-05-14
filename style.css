@@ -124,9 +124,11 @@ section {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Force 1 column on small phones */
+    /* This tells the PC to fit as many 280px cards as it can in one row */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
     width: 100%;
-    gap: 20px;
 }
 
 .product-card {
@@ -135,6 +137,8 @@ section {
     border-radius: 10px;
     border: 1px solid #333;
     transition: 0.3s;
+    width: 100%; /* Add this to ensure it stays inside the grid boundaries */
+    max-width: 100%; /* Safety measure */
 }
 
 .product-card:hover {
@@ -212,13 +216,11 @@ header {
 }
 
 @media (max-width: 600px) {
-   .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    background: -webkit-linear-gradient(#fff, #999);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Adds a metallic gradient to your title */
-}
+    .product-grid {
+        /* This tells the phone to make each card the full width of the screen */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
 
 .social-sidebar {
     position: fixed;
