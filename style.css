@@ -1,40 +1,97 @@
-/* 1. Global Reset & Smooth Scroll */
+/* --- 1. Global Reset & Body Setup --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth;
-html, body {
-    overflow-x: hidden; /* This kills horizontal scrolling/stuck pages */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
     position: relative;
     width: 100%;
 }
 
-* {
-    box-sizing: border-box; /* Ensures padding doesn't push width past 100% */
+h1, h2, h3, .logo-text {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* --- 2. Navigation (Frosted Glass Effect) --- */
+header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 1. The Container - Make it slightly taller so content fits */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    color: #e63946;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, .fb-icon:hover {
+    color: #e63946;
+}
+
+.fb-icon {
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+/* --- 3. Hero Slider (The Banner) --- */
 .slider-container {
     position: relative;
-    height: 85vh; /* Increased from 75 to 85 */
-    min-height: 600px; /* Ensures enough room for text on smaller screens */
+    height: 85vh;
+    min-height: 600px;
     background-color: #0d0d0d;
     overflow: hidden;
     width: 100%;
 }
 
-/* 2. The Slide - Pure centering */
 .slide {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    
-    /* THE KEY CODE FOR EDGE-TO-EDGE */
-    background-size: cover;      /* Stretches to fill width and height */
-    background-position: center; /* Keeps the car/product centered */
-    background-repeat: no-repeat; /* Prevents the "starting again" seam */
-    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +100,12 @@ html, body {
     transition: opacity 0.8s ease-in-out;
 }
 
-/* 3. The Layout - The "Split Screen" */
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+
 .slide-product-layout {
     display: flex;
     align-items: center;
@@ -51,19 +113,13 @@ html, body {
     gap: 40px;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto; /* Centers the whole block */
-}
-
-.slide.active {
-    opacity: 1; /* Shown when active */
-    visibility: visible;
-    z-index: 5;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .slide-image {
     flex: 1;
-    width: 100%;
-    max-width: 500px; /* Keeps image from getting too huge */
+    max-width: 500px;
     height: 350px;
     background: #1a1a1a;
     border-radius: 12px;
@@ -71,6 +127,12 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.slide-info {
+    flex: 1;
+    text-align: left;
 }
 
 .category-tag {
@@ -89,14 +151,13 @@ html, body {
 .slide-price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #fff;
     margin: 20px 0;
 }
 
-/* Navigation Buttons - Moved up slightly to ensure they don't overlap footer */
+/* --- 4. Slider Navigation --- */
 .slider-nav {
     position: absolute;
-    bottom: 20px; 
+    bottom: 30px;
     right: 10%;
     display: flex;
     gap: 15px;
@@ -104,7 +165,7 @@ html, body {
 }
 
 .slider-nav button {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid #444;
     color: white;
     width: 60px;
@@ -112,7 +173,6 @@ html, body {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 1.2rem;
 }
 
 .slider-nav button:hover {
@@ -120,91 +180,15 @@ html, body {
     border-color: #e63946;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .slide-product-layout {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    .slide-info { text-align: center; }
-    .slide-info h1 { font-size: 2rem; }
-    .slide-image { height: 250px; width: 100%; }
-    .slider-nav {
-        right: 50%;
-        transform: translateX(50%);
-    }
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #121212; /* Fixed: This now covers the whole page */
-    color: #ffffff;
-    line-height: 1.6;
-}
-
-h1, h2, h3, .logo-text {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* 2. Navigation */
-header {
-    background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent black */
-    padding: 15px 10%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #333;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-text {
-    font-size: 24px;
-    color: #e63946;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #e63946;
-}
-
-/* 3. Sections & Hero */
+/* --- 5. Content Sections --- */
 section {
     padding: 100px 10%;
     text-align: center;
-    scroll-margin-top: 70px; /* Prevents header from covering titles */
+    scroll-margin-top: 70px;
 }
 
-.hero {
-    width: 100%;
-    overflow: hidden;
-    padding: 100px 20px; /* Smaller padding for mobile */
+.hero { /* Original static hero for logo */
+    padding: 100px 20px;
 }
 
 .main-logo {
@@ -229,7 +213,6 @@ section {
     transform: scale(1.05);
 }
 
-/* 4. Partners Bar */
 .partners-bar {
     background-color: #000;
     padding: 20px;
@@ -239,19 +222,12 @@ section {
     border-bottom: 1px solid #222;
 }
 
-.partner {
-    margin: 0 15px;
-    color: #999;
-    font-weight: bold;
-}
-
+/* --- 6. Shop Grid --- */
 .product-grid {
     display: grid;
-    /* This tells the PC to fit as many 280px cards as it can in one row */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
-    width: 100%;
 }
 
 .product-card {
@@ -260,30 +236,11 @@ section {
     border-radius: 10px;
     border: 1px solid #333;
     transition: 0.3s;
-    width: 100%; /* Add this to ensure it stays inside the grid boundaries */
-    max-width: 100%; /* Safety measure */
 }
 
 .product-card:hover {
     border-color: #e63946;
     box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1);
-}
-
-.product-image-placeholder {
-    background-color: #2a2a2a;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    color: #555;
-}
-
-.price {
-    font-size: 1.4rem;
-    color: #e63946;
-    font-weight: bold;
 }
 
 .buy-button {
@@ -296,18 +253,21 @@ section {
     margin-top: 20px;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: none;
+    transition: 0.3s;
 }
 
-.buy-button:hover {
-    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
-    filter: brightness(1.2);
+/* --- Fix for Shop Product Images --- */
+.product-card .product-img {
+    width: 100%;           /* Fills the horizontal space of the card */
+    height: 200px;         /* Gives every product image a consistent height */
+    object-fit: cover;     /* Crops the image to fit the box without stretching/elongating */
+    object-position: center; /* Ensures the car part/engine is centered in the frame */
+    border-radius: 6px;    /* Matches your card style */
+    margin-bottom: 15px;
+    display: block;
 }
 
-/* 6. Footer */
+/* --- 7. Footer & Sidebar --- */
 footer {
     padding: 60px 10%;
     background-color: #0a0a0a;
@@ -316,70 +276,66 @@ footer {
     color: #555;
 }
 
-header {
-    background-color: rgba(18, 18, 18, 0.8); /* Semi-transparent */
-    backdrop-filter: blur(10px);            /* The "Frosted Glass" effect */
-    -webkit-backdrop-filter: blur(10px);     /* Safari Support */
-    padding: 15px 10%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.social-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.fb-icon {
-    font-size: 1.2rem; /* Makes it slightly larger than the text */
-    color: #ffffff;
+.social-sidebar a {
+    width: 45px;
+    height: 45px;
+    background: #1877F2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
     transition: 0.3s;
 }
 
-.fb-icon:hover {
-    color: #1877F2; /* Official Facebook Blue */
-    transform: translateY(-2px);
-}
-
+/* --- 8. Responsive Design (The Bottom) --- */
 @media (max-width: 900px) {
     .slider-container {
-        height: auto; /* Let it grow with content */
+        height: auto;
         min-height: 80vh;
-        padding-bottom: 80px; /* Room for the arrows */
+        padding-bottom: 80px;
     }
 
     .slide-product-layout {
         flex-direction: column;
-        gap: 20px;
-    }
-
-    .slide-image {
-        height: 200px; /* Shrink image on mobile */
-        width: 100%;
+        text-align: center;
     }
 
     .slide-info h1 {
         font-size: 2.2rem;
     }
 
-    .slide-info {
-        text-align: center;
-        align-items: center;
+    .slide-image {
+        height: 250px;
+        width: 100%;
+    }
+
+    .slider-nav {
+        right: 50%;
+        transform: translateX(50%);
     }
 }
 
 @media (max-width: 600px) {
+    section { padding: 60px 5%; }
+    
     .social-sidebar {
-        right: 10px; /* Move closer to the edge */
-        gap: 8px;
+        right: 10px;
     }
     
-    .social-sidebar a {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-    }
-
-    /* Important: Disable the "Popping out" effect on mobile 
-       to prevent touch-scroll interference */
     .social-sidebar a:hover {
-        transform: scale(1); 
+        transform: none;
     }
 }
