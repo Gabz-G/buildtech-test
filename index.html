@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,27 +9,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
-<div class="social-sidebar">
-    <a href="https://www.facebook.com/profile.php?id=61567359306987" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-</div>
-
 <body>
+
+    <!-- Sidebar should be inside Body -->
+    <div class="social-sidebar">
+        <a href="https://www.facebook.com/profile.php?id=61567359306987" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    </div>
 
     <header>
         <nav>
             <div class="logo-text">BUILDTECH</div>
             <ul>
-   		 <li><a href="#home">Home</a></li>
-   		 <li><a href="#services">Services</a></li>
-   		 <li><a href="#shop">Shop</a></li>
-   		 <!-- The Facebook Icon -->
-   		 <li><a href="https://www.facebook.com/profile.php?id=61567359306987" target="_blank" class="fb-icon"><i class="fa-brands fa-facebook"></i></a></li>
-	</ul>
-
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61567359306987" target="_blank" class="fb-icon"><i class="fa-brands fa-facebook"></i></a></li>
+            </ul>
         </nav>
-
     </header>
 
+    <!-- Main Hero Section -->
     <section id="home" class="hero">
         <img src="logo.jpg" alt="Buildtech Performance Logo" class="main-logo">
         <h1>Precision Automotive Performance</h1>
@@ -43,93 +41,90 @@
         <span class="partner">MEGASQUIRT</span>
     </div>
 
-<section id="home" class="slider-container">
-    <div class="slider">
-        
-        <!-- Slide 1: Carburetor Tuning and Balancing -->
-        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('carbsync.jpg');">
-            <div class="slide-product-layout">
-                <div class="slide-image">
-                    <div class="product-placeholder">Carburetor Cleaning and Balancing</div>
+    <!-- Featured Slider Section (Changed ID to be unique) -->
+    <section id="featured-products" class="slider-container">
+        <div class="slider">
+            
+            <!-- Slide 1: ACTIVE -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('carbsync.jpg');">
+                <div class="slide-product-layout">
+                    <div class="slide-image">
+                        <div class="product-placeholder">Carburetor Tuning</div>
+                    </div>
+                    <div class="slide-info">
+                        <span class="category-tag">Carburetor Performance</span>
+                        <h1>Carburetor Tuning & Balancing</h1>
+                        <p>Full cleaning and rejetting optimized for Malta's climate.</p>
+                        <p class="slide-price">Starting at €125</p>
+                        <a href="mailto:builtech26@gmail.com?subject=Inquiry: Carburetor" class="cta-button">Inquire Now</a>
+                    </div>
                 </div>
-                <div class="slide-info">
-                    <span class="category-tag">Carburetor Performance</span>
-                    <h1>Carburetor Tuning and Balancing</h1>
-                    <p>Full Carb Cleaning services and rejetting optimized for Malta's climate or racing conditions.</p>
-                    <p class="slide-price">Starting at €100</p>
-                    <a href="mailto:builtech26@gmail.com?subject=Inquiry: Carburetor Tuning and Balancing" class="cta-button">Inquire Now</a>
+            </div>
+
+            <!-- Slide 2: NOT active by default -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('ecutuning.jpg');">
+                <div class="slide-product-layout">
+                    <div class="slide-image">
+                        <div class="product-placeholder">ECU TUNING</div>
+                    </div>
+                    <div class="slide-info">
+                        <span class="category-tag">Digital Precision</span>
+                        <h1>Custom ECU Calibration</h1>
+                        <p>Optimized for street reliability or racing conditions.</p>
+                        <p class="slide-price">Starting at €450</p>
+                        <a href="mailto:builtech26@gmail.com?subject=Inquiry: ECU" class="cta-button">Book a Session</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 2: ECU Calibration -->
-        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('ecutuning.jpg');">
-
-            <div class="slide-product-layout">
-                <div class="slide-image">
-                    <div class="product-placeholder">ECU TUNING</div>
-                </div>
-                <div class="slide-info">
-                    <span class="category-tag">Digital Precision</span>
-                    <h1>Custom ECU Calibration</h1>
-                    <p>Optimized for Malta's climate or racing conditions.</p>
-                    <p class="slide-price">Starting at €450</p>
-                    <a href="mailto:builtech26@gmail.com?subject=Inquiry: ECU Calibration" class="cta-button">Book a Session</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Navigation Arrows -->
-<div class="slider-nav">
-    <button class="prev-btn"><i class="fa-solid fa-arrow-left"></i></button>
-    <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button>
-</div>
-</section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>We're kicking things off by focusing on standalone Megasquirt ECUs, programming, and street tuning. We've got dashboards and ECUs for all sorts of projects, from small DIY kits for hobbyists who like to get their hands dirty to full-on professional ECUs.</p>
-        <div class="service-list">
-            <p><strong>• ECU Calibration:</strong> Custom mapping for maximum efficiency and power.</p>
-            <p><strong>• Injector Cleaning:</strong> Injectors are cleaned in ulta sonic cleaner with cleaning fluid and tested for equel pressure.</p>
-            <p><strong>• Carburetor Cleaning:</strong> Carburetor is manually cleaned then put in ultrasonic cleaner and cleaning fluid.</p>
-	    <p><strong>• Carburetor Tuning:</strong> Carburetor is tuned for optimum performance and if applicable synced in cases of multiple carburetors.</p>
+        <!-- Navigation -->
+        <div class="slider-nav">
+            <button class="prev-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>Specializing in standalone Megasquirt ECUs, programming, and street tuning for the Malta performance scene.</p>
+        <div class="service-list">
+            <p><strong>• ECU Calibration:</strong> Custom mapping for maximum efficiency and power.</p>
+            <p><strong>• Injector Cleaning:</strong> Ultrasonic cleaning and flow testing.</p>
+            <p><strong>• Carburetor Cleaning:</strong> Manual and ultrasonic deep cleaning.</p>
+            <p><strong>• Carburetor Tuning:</strong> Optimization and multi-carb synchronization.</p>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
     <section id="shop">
         <h2>Shop Performance Parts</h2>
         <div class="product-grid">
             
-            <!-- Product 1 -->
             <div class="product-card">
-                <img src="ms3pro.jpg" alt="ECU Tuning" class="main-logo">
+                <img src="ms3pro.jpg" alt="ECU Tuning" class="product-img">
                 <h3>ECU Tuning</h3>
                 <p class="price">€Inquire</p>
                 <a href="mailto:builtech26@gmail.com?subject=Inquiry: ECU Tuning" class="buy-button">Inquire</a>
             </div>
 
-            <!-- Product 2 -->
             <div class="product-card">
-                <img src="injector.jpg" alt="Injector Cleaning" class="main-logo">
+                <img src="injector.jpg" alt="Injector Cleaning" class="product-img">
                 <h3>Injector Cleaning</h3>
                 <p class="price">€200.00</p>
                 <a href="mailto:builtech26@gmail.com?subject=Inquiry: Injector Cleaning" class="buy-button">Inquire</a>
             </div>
 
-            <!-- Product 3 -->
             <div class="product-card">
-                <img src="carbcleaning.jpg" alt="Carburetor Cleaning" class="main-logo">
+                <img src="carbcleaning.jpg" alt="Carburetor Cleaning" class="product-img">
                 <h3>Carburetor Cleaning</h3>
                 <p class="price">€50.00</p>
                 <a href="mailto:builtech26@gmail.com?subject=Inquiry: Carburetor Cleaning" class="buy-button">Inquire</a>
-	    </div>
+            </div>
 
-	    <!-- Product 4 -->
             <div class="product-card">
-                <img src="carbsync.jpg" alt="Carburetor Tuning" class="main-logo">
+                <img src="carbsync.jpg" alt="Carburetor Tuning" class="product-img">
                 <h3>Carburetor Tuning</h3>
                 <p class="price">€75.00</p>
                 <a href="mailto:builtech26@gmail.com?subject=Inquiry: Carburetor Tuning" class="buy-button">Inquire</a>
@@ -137,45 +132,7 @@
 
         </div>
     </section>
-<script>
-    // 1. Select all the slides and buttons
-    const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.querySelector('.next-btn');
-    const prevBtn = document.querySelector('.prev-btn');
-    let index = 0;
 
-    // 2. The Function to move slides
-    function changeSlide(direction) {
-        // Remove 'active' from current slide
-        slides[index].classList.remove('active');
-
-        if (direction === 'next') {
-            index = (index + 1) % slides.length;
-        } else {
-            index = (index - 1 + slides.length) % slides.length;
-        }
-
-        // Add 'active' to the new slide
-        slides[index].classList.add('active');
-        console.log("Current Slide Index:", index); // This helps you debug!
-    }
-
-    // 3. Event Listeners for Buttons
-    nextBtn.addEventListener('click', () => {
-        clearInterval(autoSlide); // Stops auto-timer on click
-        changeSlide('next');
-        autoSlide = setInterval(() => changeSlide('next'), 5000); // Restarts timer
-    });
-
-    prevBtn.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        changeSlide('prev');
-        autoSlide = setInterval(() => changeSlide('next'), 5000);
-    });
-
-    // 4. Set Auto-Slide timer (5 seconds)
-    let autoSlide = setInterval(() => changeSlide('next'), 5000);
-</script>
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 Buildtech Performance | Malta</p>
@@ -183,5 +140,36 @@
         </div>
     </footer>
 
+    <!-- Scripts at the very end of Body -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.querySelector('.next-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        let index = 0;
+
+        function changeSlide(direction) {
+            slides[index].classList.remove('active');
+            if (direction === 'next') {
+                index = (index + 1) % slides.length;
+            } else {
+                index = (index - 1 + slides.length) % slides.length;
+            }
+            slides[index].classList.add('active');
+        }
+
+        let autoSlide = setInterval(() => changeSlide('next'), 5000);
+
+        nextBtn.addEventListener('click', () => {
+            clearInterval(autoSlide);
+            changeSlide('next');
+            autoSlide = setInterval(() => changeSlide('next'), 5000);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            clearInterval(autoSlide);
+            changeSlide('prev');
+            autoSlide = setInterval(() => changeSlide('next'), 5000);
+        });
+    </script>
 </body>
 </html>
